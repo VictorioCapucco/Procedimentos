@@ -446,5 +446,66 @@ namespace Negocios
                 return "";
             }
         }
+
+        public Boolean ExistePastasSistema()
+        {
+            string[] paths = { @"Usuarios", "0001.txt" };
+            string usuario_inicial = Path.Combine(paths);
+
+            string[] paths2 = { @"Usuarios", "CodigoUsuario.txt" };
+            string codigo_usuario = Path.Combine(paths2);
+
+            if (File.Exists(usuario_inicial) && File.Exists(codigo_usuario))
+            {
+                return true;
+            }
+
+            else
+                return false;
+        }
+
+        public Boolean CriarPastasSistema()
+        {
+            try
+            {
+                //Apagando as pastas se houver
+                if (Directory.Exists(@"Usuarios"))
+                    Directory.Delete(@"Usuarios");
+
+                if (Directory.Exists(@"Procedimentos"))
+                    Directory.Delete(@"Procedimentos");
+
+                //Criando as pastas novamente
+                Directory.CreateDirectory(@"Usuarios");
+                Directory.CreateDirectory(@"Procedimentos");
+
+
+                //Criando os arquivos
+                string[] paths = { @"Usuarios", "0001.txt" };
+                string usuario_inicial = Path.Combine(paths);
+
+                string[] paths2 = { @"Usuarios", "CodigoUsuario.txt" };
+                string codigo_usuario = Path.Combine(paths2);
+
+
+                using (StreamWriter writer = new StreamWriter(usuario_inicial))
+                {
+                    writer.WriteLine("Admin");
+                    writer.WriteLine("81dc9bdb52d04dc20036dbd8313ed055");
+                }
+
+                using (StreamWriter writer = new StreamWriter(codigo_usuario))
+                {
+                    writer.WriteLine("0002");
+                }
+
+                return true;
+            }
+
+            catch
+            {
+                return false;
+            }
+        }
     }
 }

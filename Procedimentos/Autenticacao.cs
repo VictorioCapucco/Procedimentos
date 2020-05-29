@@ -120,5 +120,26 @@ namespace Procedimentos
             else
                 MessageBox.Show("Código de usuário ou senha incorretos");
         }
+
+        private void Autenticacao_Load(object sender, EventArgs e)
+        {
+            Boolean existePastasSistema = funcao.ExistePastasSistema();
+
+            if (existePastasSistema == false)
+            {
+                if (DialogResult.Yes == MessageBox.Show("Atenção. Não foram encontradas as pastas do sistema. \nDeseja criar?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2))
+                {
+                    Boolean statusCriarPastasSistema = funcao.CriarPastasSistema();
+
+                    if (statusCriarPastasSistema == true)
+                        MessageBox.Show("Pastas criadas com sucesso \n\nO usuário admin foi criado com senha 1234, utilize-o para acessar o sistema.");
+                    else
+                    {
+                        MessageBox.Show("Não foi possível criar as pastas do sistema \nVerifique as permissões e tente novamente");
+                        this.Close();
+                    }
+                }
+            }
+        }
     }
 }

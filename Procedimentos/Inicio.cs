@@ -18,6 +18,7 @@ namespace Procedimentos
     {
         object codigo_usuario;
         Form form_autenticacao;
+        CamadaNegocios funcao = new CamadaNegocios();
 
         public Inicio(object classe_usuario, Form autenticacacao)
         {
