@@ -132,7 +132,7 @@ namespace Procedimentos
                     Boolean statusCriarPastasSistema = funcao.CriarPastasSistema();
 
                     if (statusCriarPastasSistema == true)
-                        MessageBox.Show("Pastas criadas com sucesso \n\nO usuário admin foi criado com senha 1234, utilize-o para acessar o sistema.");
+                        MessageBox.Show("Pastas criadas com sucesso \n\n\nO usuário admin foi criado com senha 1234, utilize-o para acessar o sistema.");
                     else
                     {
                         MessageBox.Show("Não foi possível criar as pastas do sistema \nVerifique as permissões e tente novamente");
