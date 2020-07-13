@@ -5,7 +5,7 @@
 <ul>
   <li>Visual Studio 2017.</li>
   <li>Linguagem C# - Windows Forms.</li>
-  <li>Padrão Layered.</li>  
+  <li>Padrão arquitetural Em Camadas.</li>  
   <li>Arquivos txt como "Banco de Dados".</li>
   <li> Hash MD5 para guardar as senhas.</li>
 </ul>
